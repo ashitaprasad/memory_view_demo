@@ -9,9 +9,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MemoryLeaksScreen(),
-    );
+    return const MaterialApp(home: MemoryLeaksScreen());
   }
 }
 
@@ -31,15 +29,11 @@ class MemoryLeaksScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          child: const Text(
-            'Add 1M Leaky Objects',
-          ),
+          child: const Text('Add 1M Leaky Objects'),
           onPressed: () {
             var i = 0;
             while (i < 1000000) {
-              leakObjects.add(
-                MemoryLeakObject('Id: ${leakObjects.length}'),
-              );
+              leakObjects.add(MemoryLeakObject('Id: ${leakObjects.length}'));
               i++;
             }
           },
